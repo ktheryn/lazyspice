@@ -36,12 +36,12 @@ class Homescreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/SpiceLogo1.jpg'),
-                      radius: 43,
+                    child: Image.asset(
+                      'images/SpiceLogotransparent.png',
                     ),
                   ),
-                  Expanded(
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10),
                     child: Text(
                       'Learn different recipes easy!',
                       style: TextStyle(
