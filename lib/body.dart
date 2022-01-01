@@ -68,14 +68,14 @@ class _tabBarState extends State<tabBar> {
         child: Column(
           children: [
             TabBar(
-              labelColor: Color(0XFFf3c65f),
+              labelColor: Colors.black,
               labelStyle: TextStyle(
-                fontSize: 20,
+                fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
               isScrollable: true,
               // unselectedLabelColor: Colors.grey,
-              indicatorColor: Color(0XFFf3c65f),
+              indicatorColor: Colors.yellow,
               tabs: [
                 Tab(
                   text: "Filter by Area".toUpperCase(),

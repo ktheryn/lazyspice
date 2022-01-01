@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'splashscreen.dart';
+import 'package:lazyspice/homescreen.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -10,16 +10,13 @@ class RecipeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData.light().copyWith(
         textTheme: TextTheme(
           bodyText1: TextStyle(color: Colors.black),
           bodyText2: TextStyle(color: Colors.black),
         ),
       ),
-      //home: Homescreen(),
-      // Recipe_Instruction_Card2(idNumber: (52874).toString(),),
-      //home:Homescreen(),
-      home: Splashscreen1(),
+      home: Homescreen(),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'recipe_instruction_card2.dart';
-import 'recipe_instruction_card.dart';
 import 'recipe_card.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -59,30 +58,46 @@ class _CatergoryresultState extends State<Catergoryresult> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: isloading? Center(child: Container(decoration: BoxDecoration(color: Color(0XFFf3c65f)),child: SpinKitCircle(color: Colors.black, size: 70,)),) :
-        Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                  itemCount: strCategory1.length,
-                  itemBuilder: (context, index) {
-                    return RecipeCard(
-                      title: strCategory1[index],
-                      thumbnailUrl: strCategoryThumb1[index],
-                      ontappy: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Recipe_Instruction_Card2(
-                                idNumber: idMeal[index]),
-                          ),
-                        );
-                      },
-                    );
-                  }),
-            )
-          ],
-        ),
+        body: isloading
+            ? Center(
+          child: Container(
+              decoration: BoxDecoration(color: Colors.yellow),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Now Cooking...', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                  SizedBox(height: 30,),
+                  SpinKitFadingFour(
+                    color: Colors.black,
+                    size: 100,
+                  ),
+                ],
+              )),
+        )
+            : Column(
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: strCategory1.length,
+                        itemBuilder: (context, index) {
+                          return RecipeCard(
+                            title: strCategory1[index],
+                            thumbnailUrl: strCategoryThumb1[index],
+                            ontappy: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Recipe_Instruction_Card2(
+                                          idNumber: idMeal[index]),
+                                ),
+                              );
+                            },
+                          );
+                        }),
+                  )
+                ],
+              ),
       ),
     );
   }

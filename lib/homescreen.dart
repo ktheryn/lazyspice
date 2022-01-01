@@ -27,28 +27,29 @@ class Homescreen extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height*0.17,
+              height: MediaQuery.of(context).size.height * 0.17,
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Color(0XFFf3c65f),),
+              decoration: BoxDecoration(
+                color: Colors.yellow,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    'Spice',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Pushster',
-                        fontSize: 50),
+                  Expanded(
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/SpiceLogo1.jpg'),
+                      radius: 43,
+                    ),
                   ),
-                  SizedBox(height: 10,),
-                  Text(
-                    'Learn different recipes easy!',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Licorice',
-                        fontSize: 40),
+                  Expanded(
+                    child: Text(
+                      'Learn different recipes easy!',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Licorice',
+                          fontSize: 25),
+                    ),
                   ),
                 ],
               ),

@@ -21,16 +21,16 @@ class RecipeCard extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: 180,
         decoration: BoxDecoration(
-          color: Color(0XFFf3c65f),
+          color: Colors.yellow,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.6),
               offset: Offset(
                 0.0,
-                10.0,
+                20.0,
               ),
-              blurRadius: 10.0,
+              blurRadius: 7.0,
               spreadRadius: -6.0,
             ),
           ],

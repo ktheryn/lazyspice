@@ -47,12 +47,20 @@ class _Recipe_Instruction_Card2State extends State<Recipe_Instruction_Card2> {
         idMeal2 = (jsonDecode(data)['meals'][0]['idMeal']);
         isloading = false;
         for (int j = 0; j < 20; j++) {
-          if (jsonDecode(data)['meals'][0]['strIngredient' + (j + 1).toString()] == null ||
-              jsonDecode(data)['meals'][0]['strIngredient' + (j + 1).toString()] == "") {
+          if (jsonDecode(data)['meals'][0]
+                      ['strIngredient' + (j + 1).toString()] ==
+                  null ||
+              jsonDecode(data)['meals'][0]
+                      ['strIngredient' + (j + 1).toString()] ==
+                  "") {
             print("not");
-          } else {print(jsonDecode(data)['meals'][0]['strIngredient' + (j + 1).toString()]);
-          strIngredient2.add(jsonDecode(data)['meals'][0]['strIngredient' + (j + 1).toString()]);
-          strMeasure2.add(jsonDecode(data)['meals'][0]['strMeasure' + (j + 1).toString()]);
+          } else {
+            print(jsonDecode(data)['meals'][0]
+                ['strIngredient' + (j + 1).toString()]);
+            strIngredient2.add(jsonDecode(data)['meals'][0]
+                ['strIngredient' + (j + 1).toString()]);
+            strMeasure2.add(jsonDecode(data)['meals'][0]
+                ['strMeasure' + (j + 1).toString()]);
           }
         }
       });
@@ -73,129 +81,146 @@ class _Recipe_Instruction_Card2State extends State<Recipe_Instruction_Card2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFFf3c65f),
+      // backgroundColor: Colors.yellow,
       body: isloading
           ? Center(
         child: Container(
-            decoration: BoxDecoration(color: Color(0XFFf3c65f)),
-            child: SpinKitCircle(color: Colors.black, size: 70)),
+            decoration: BoxDecoration(color: Colors.yellow),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Now Cooking...', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                SizedBox(height: 30,),
+                SpinKitFadingFour(
+                  color: Colors.black,
+                  size: 100,
+                ),
+              ],
+            )),
       )
           : SafeArea(
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                children: [
-                  Image.network(
-                    strMealThumb2,
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: Container(
-                      margin: EdgeInsets.all(10.0),
-                      height: 100,
-                      width: MediaQuery.of(context).size.width * 0.95,
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.5),
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(20)),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 10, bottom: 20),
-                        child: Center(
-                          child: Text(
-                            strMeal2,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Stack(
+                      children: [
+                        Image.network(
+                          strMealThumb2,
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          child: Container(
+                            margin: EdgeInsets.all(10.0),
+                            height: 100,
+                            width: MediaQuery.of(context).size.width * 0.95,
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.5),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 10, bottom: 20),
+                              child: Center(
+                                child: Text(
+                                  strMeal2,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'INSTRUCTIONS',
-                style: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: strIngredient2.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(left: 50, bottom: 10),
-                    child: Row(
-                      children: [
-                        FaIcon(
-                          FontAwesomeIcons.utensils,
-                          color: Colors.black,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Row(
-                          children: [
-                            Text(strMeasure2[index], style: TextStyle(
-                              fontSize: 20,
-                            ),),
-                            SizedBox(
-                              width: 7,
-                            ),
-                            Text(strIngredient2[index], style: TextStyle(
-                              fontSize: 20,
-                            ),),
-                          ],
-                        ),
                       ],
                     ),
-                  );
-                },
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: listInstructions.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                    EdgeInsets.only(right: 20, left: 20, bottom: 10),
-                    child: Text(
-                      "Step " +
-                          (index + 1).toString() +
-                          ": " +
-                          listInstructions[index],
-                      textAlign: TextAlign.justify,
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      'INSTRUCTIONS',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
                     ),
-                  );
-                },
+                    Divider(color: Colors.yellow, thickness: 3, indent: 30, endIndent: 30,),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: strIngredient2.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: EdgeInsets.only(left: 50, bottom: 10),
+                          child: Row(
+                            children: [
+                              FaIcon(
+                                FontAwesomeIcons.utensils,
+                                color: Colors.black,
+                                size: 20,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    strMeasure2[index],
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 7,
+                                  ),
+                                  Text(
+                                    strIngredient2[index],
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: listInstructions.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding:
+                              EdgeInsets.only(right: 20, left: 20, bottom: 10),
+                          child: Text(
+                            "Step " +
+                                (index + 1).toString() +
+                                ": " +
+                                listInstructions[index],
+                            textAlign: TextAlign.justify,
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
