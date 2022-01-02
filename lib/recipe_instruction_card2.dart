@@ -128,7 +128,7 @@ class _Recipe_Instruction_Card2State extends State<Recipe_Instruction_Card2> {
                                     strMeal2,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 18,
                                       color: Colors.white,
                                     ),
                                   ),

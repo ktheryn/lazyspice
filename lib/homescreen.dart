@@ -37,7 +37,7 @@ class Homescreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Image.asset(
-                      'images/SpiceLogotransparent.png',
+                      'images/SpiceLogotransparenty.png',
                     ),
                   ),
                   Padding(

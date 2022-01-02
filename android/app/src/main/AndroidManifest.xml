@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.snickerdoodle.lazyspice.lazyspice">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="lazyspice"
         android:name="${applicationName}"
