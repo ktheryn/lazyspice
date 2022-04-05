@@ -48,7 +48,8 @@ class RecipeCard extends StatelessWidget {
             Align(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Container(
+                child:
+                Container(
                   margin: EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.6),

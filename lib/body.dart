@@ -32,6 +32,7 @@ class _tabBarState extends State<tabBar> {
     }
   }
 
+
   void getAreaResults() async {
     http.Response response = await http.get(
         Uri.parse('https://www.themealdb.com/api/json/v1/1/list.php?a=list'));

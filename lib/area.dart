@@ -45,7 +45,8 @@ class Area extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
+            child:
+            ListView.builder(
                 itemCount: title.length,
                 itemBuilder: (context, index) {
                   return RecipeCard(

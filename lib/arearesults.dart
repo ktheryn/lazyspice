@@ -35,8 +35,7 @@ class _AreaResultsCategoryState extends State<AreaResultsCategory> {
         'https://www.themealdb.com/api/json/v1/1/filter.php?a=' + title));
     //print(await http.read(Uri.parse('https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772')));
     print("body response : " + response.body);
-    if (response.statusCode == 200) {
-      String data = response.body;
+    String data = response.body;
       setState(() {
         for (int i = 0; i < jsonDecode(data)['meals'].length; i++) {
           strArea.add(jsonDecode(data)['meals'][i]['strMeal']);
